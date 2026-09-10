@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initToast();
   initDemoOnly();
+  initComments();
 });
 
 /* ---------- 1. 深色模式 ---------- */
@@ -131,14 +132,36 @@ function showToast(message) {
 }
 
 function initToast() {
-  // 搜索框：静态站点没有搜索后端，给出提示
   const searchForm = document.getElementById('search-form');
   if (searchForm) {
-    searchForm.addEventListener('submit', (e) => {
+    searchForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('🔍 演示站点：搜索功能暂未开放');
+      const input = searchForm.querySelector('input');
+      const query = input ? input.value.trim() : '';
+      if (!query) {
+        showToast('请输入搜索关键词');
+        return;
+      }
+
+      try {
+        const data = await requestJson(`/api/search?q=${encodeURIComponent(query)}`);
+        if (!data.results.length) {
+          showToast(`没有找到“${query}”相关内容`);
+          return;
+        }
+        showToast(`找到 ${data.results.length} 条：${data.results[0].title}`);
+      } catch (error) {
+        showToast(`搜索失败：${error.message}`);
+      }
     });
   }
+}
+
+async function requestJson(url, options = {}) {
+  const response = await fetch(url, options);
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || '服务器请求失败');
+  return data;
 }
 
 /* ---------- 7. 演示站专属交互提示 ---------- */
@@ -153,12 +176,100 @@ function initDemoOnly() {
     btn.addEventListener('click', () => showToast('📤 演示站点：分享功能暂未开放'));
   });
 
-  // 评论表单
+}
+
+function initComments() {
   const commentForm = document.getElementById('comment-form');
+  const commentList = document.getElementById('comment-list');
+  if (!commentForm || !commentList) return;
+
+  loadComments(commentList);
+
   if (commentForm) {
-    commentForm.addEventListener('submit', (e) => {
+    commentForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('💬 演示站点：评论功能暂未开放');
+      const input = commentForm.querySelector('input');
+      const content = input ? input.value.trim() : '';
+      if (!content) {
+        showToast('评论不能为空');
+        return;
+      }
+
+      const button = commentForm.querySelector('button');
+      if (button) button.disabled = true;
+      try {
+        const data = await requestJson('/api/comments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content }),
+        });
+        appendComment(commentList, data.comment);
+        updateCommentCount(commentList);
+        input.value = '';
+        showToast('评论发表成功');
+      } catch (error) {
+        showToast(`评论失败：${error.message}`);
+      } finally {
+        if (button) button.disabled = false;
+      }
     });
   }
+}
+
+async function loadComments(commentList) {
+  try {
+    const data = await requestJson('/api/comments');
+    data.comments.forEach((comment) => appendComment(commentList, comment));
+    updateCommentCount(commentList);
+  } catch (error) {
+    showToast(`评论加载失败：${error.message}`);
+  }
+}
+
+function appendComment(commentList, comment) {
+  if (comment.id && commentList.querySelector(`[data-comment-id="${comment.id}"]`)) return;
+
+  const item = document.createElement('div');
+  item.className = 'comment-item';
+  if (comment.id) item.dataset.commentId = comment.id;
+
+  const avatar = document.createElement('span');
+  avatar.className = 'avatar';
+  avatar.style.background = '#0f8a4d';
+  avatar.textContent = '访';
+
+  const content = document.createElement('div');
+  const head = document.createElement('div');
+  head.className = 'comment-head';
+  const name = document.createElement('span');
+  name.className = 'name';
+  name.textContent = comment.author;
+  const time = document.createElement('span');
+  time.className = 'time';
+  time.textContent = formatCommentTime(comment.created_at);
+  head.append(name, time);
+
+  const body = document.createElement('div');
+  body.className = 'comment-body';
+  body.textContent = comment.content;
+  content.append(head, body);
+  item.append(avatar, content);
+  commentList.appendChild(item);
+}
+
+function updateCommentCount(commentList) {
+  const count = document.getElementById('comment-count');
+  if (count) count.textContent = commentList.querySelectorAll('.comment-item').length;
+}
+
+function formatCommentTime(createdAt) {
+  if (!createdAt) return '刚刚';
+  const created = new Date(createdAt);
+  if (Number.isNaN(created.getTime())) return '刚刚';
+  return created.toLocaleString('zh-CN', {
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 }
