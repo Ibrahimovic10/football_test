@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="绿茵快讯积分榜：英超、西甲、意甲、德甲、法甲最新积分排名">
+  <title>积分榜 - 绿茵快讯</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="standings">
+
+  <!-- ===== 顶部导航 ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">⚽</span>绿茵快讯<small>FOOTBALL NEWS</small>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">首页</a>
+        <a href="matches.html">赛程</a>
+        <a href="standings.html">积分榜</a>
+        <a href="article.html">深度阅读</a>
+      </nav>
+      <div class="header-tools">
+        <form class="search" id="search-form">
+          <input type="text" placeholder="搜索新闻…" aria-label="搜索新闻">
+          <button type="submit" aria-label="搜索">🔍</button>
+        </form>
+        <button class="theme-toggle" id="theme-toggle" aria-label="切换深色模式">
+          <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>🏆 积分榜</h1>
+      <p class="sub">2026-27 赛季五大联赛积分排名（截至第 5 轮）</p>
+    </div>
+
+    <!-- 联赛切换 Tab -->
+    <div class="tabs" data-tabs>
+      <button class="active" data-tab="epl">英超</button>
+      <button data-tab="laliga">西甲</button>
+      <button data-tab="seriea">意甲</button>
+      <button data-tab="bundes">德甲</button>
+      <button data-tab="ligue1">法甲</button>
+    </div>
+
+    <div class="legend">
+      <span><i class="i-cl"></i>欧冠区</span>
+      <span><i class="i-el"></i>欧联区</span>
+      <span><i class="i-rel"></i>降级区</span>
+    </div>
+
+    <!-- 英超 -->
+    <div class="tab-panel active" data-panel="epl">
+      <div class="table-wrap">
+        <table class="standings">
+          <thead>
+            <tr><th>排名</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净胜球</th><th>积分</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-cl"><td class="rank">1</td><td class="team-cell"><span class="badge sm" style="background:#6cabdd">曼城</span>曼城</td><td>5</td><td>5</td><td>0</td><td>0</td><td>16</td><td>4</td><td>+12</td><td class="pts">15</td></tr>
+            <tr class="row-cl"><td class="rank">2</td><td class="team-cell"><span class="badge sm" style="background:#c8102e">利物浦</span>利物浦</td><td>5</td><td>4</td><td>1</td><td>0</td><td>13</td><td>5</td><td>+8</td><td class="pts">13</td></tr>
+            <tr class="row-cl"><td class="rank">3</td><td class="team-cell"><span class="badge sm" style="background:#ef0107">阿森纳</span>阿森纳</td><td>5</td><td>4</td><td>0</td><td>1</td><td>11</td><td>6</td><td>+5</td><td class="pts">12</td></tr>
+            <tr class="row-cl"><td class="rank">4</td><td class="team-cell"><span class="badge sm" style="background:#034694">切尔西</span>切尔西</td><td>5</td><td>3</td><td>1</td><td>1</td><td>12</td><td>7</td><td>+5</td><td class="pts">10</td></tr>
+            <tr class="row-el"><td class="rank">5</td><td class="team-cell"><span class="badge sm" style="background:#132257">热刺</span>热刺</td><td>5</td><td>3</td><td>0</td><td>2</td><td>10</td><td>8</td><td>+2</td><td class="pts">9</td></tr>
+            <tr><td class="rank">6</td><td class="team-cell"><span class="badge sm" style="background:#da291c">曼联</span>曼联</td><td>5</td><td>2</td><td>3</td><td>0</td><td>8</td><td>5</td><td>+3</td><td class="pts">9</td></tr>
+            <tr><td class="rank">7</td><td class="team-cell"><span class="badge sm" style="background:#241f20">纽卡</span>纽卡斯尔</td><td>5</td><td>2</td><td>2</td><td>1</td><td>9</td><td>7</td><td>+2</td><td class="pts">8</td></tr>
+            <tr><td class="rank">8</td><td class="team-cell"><span class="badge sm" style="background:#670e36">维拉</span>阿斯顿维拉</td><td>5</td><td>2</td><td>1</td><td>2</td><td>8</td><td>9</td><td>-1</td><td class="pts">7</td></tr>
+            <tr><td class="rank">9</td><td class="team-cell"><span class="badge sm" style="background:#0057b8">布莱顿</span>布莱顿</td><td>5</td><td>2</td><td>0</td><td>3</td><td>7</td><td>9</td><td>-2</td><td class="pts">6</td></tr>
+            <tr class="row-rel"><td class="rank">10</td><td class="team-cell"><span class="badge sm" style="background:#7a263a">西汉姆</span>西汉姆联</td><td>5</td><td>1</td><td>1</td><td>3</td><td>5</td><td>10</td><td>-5</td><td class="pts">4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="panel-note">* 示例数据，仅为前 10 名展示</p>
+    </div>
+
+    <!-- 西甲 -->
+    <div class="tab-panel" data-panel="laliga">
+      <div class="table-wrap">
+        <table class="standings">
+          <thead>
+            <tr><th>排名</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净胜球</th><th>积分</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-cl"><td class="rank">1</td><td class="team-cell"><span class="badge sm light-text" style="background:#febe10">皇马</span>皇家马德里</td><td>5</td><td>4</td><td>1</td><td>0</td><td>13</td><td>4</td><td>+9</td><td class="pts">13</td></tr>
+            <tr class="row-cl"><td class="rank">2</td><td class="team-cell"><span class="badge sm" style="background:#a50044">巴萨</span>巴塞罗那</td><td>5</td><td>4</td><td>0</td><td>1</td><td>14</td><td>6</td><td>+8</td><td class="pts">12</td></tr>
+            <tr class="row-cl"><td class="rank">3</td><td class="team-cell"><span class="badge sm" style="background:#cb3524">马竞</span>马德里竞技</td><td>5</td><td>3</td><td>1</td><td>1</td><td>9</td><td>5</td><td>+4</td><td class="pts">10</td></tr>
+            <tr class="row-cl"><td class="rank">4</td><td class="team-cell"><span class="badge sm" style="background:#f43333">塞维</span>塞维利亚</td><td>5</td><td>2</td><td>2</td><td>1</td><td>7</td><td>6</td><td>+1</td><td class="pts">8</td></tr>
+            <tr class="row-el"><td class="rank">5</td><td class="team-cell"><span class="badge sm light-text" style="background:#ffe667">潜艇</span>比利亚雷亚尔</td><td>5</td><td>2</td><td>1</td><td>2</td><td>8</td><td>8</td><td>0</td><td class="pts">7</td></tr>
+            <tr class="row-el"><td class="rank">6</td><td class="team-cell"><span class="badge sm" style="background:#0067b1">皇社</span>皇家社会</td><td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>6</td><td>0</td><td class="pts">7</td></tr>
+            <tr><td class="rank">7</td><td class="team-cell"><span class="badge sm" style="background:#ee2523">毕尔巴鄂</span>毕尔巴鄂竞技</td><td>5</td><td>2</td><td>0</td><td>3</td><td>6</td><td>8</td><td>-2</td><td class="pts">6</td></tr>
+            <tr class="row-rel"><td class="rank">8</td><td class="team-cell"><span class="badge sm" style="background:#00954c">贝蒂斯</span>皇家贝蒂斯</td><td>5</td><td>1</td><td>2</td><td>2</td><td>5</td><td>7</td><td>-2</td><td class="pts">5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="panel-note">* 示例数据，仅为前 8 名展示</p>
+    </div>
+
+    <!-- 意甲 -->
+    <div class="tab-panel" data-panel="seriea">
+      <div class="table-wrap">
+        <table class="standings">
+          <thead>
+            <tr><th>排名</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净胜球</th><th>积分</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-cl"><td class="rank">1</td><td class="team-cell"><span class="badge sm" style="background:#0068a8">国米</span>国际米兰</td><td>5</td><td>4</td><td>1</td><td>0</td><td>12</td><td>3</td><td>+9</td><td class="pts">13</td></tr>
+            <tr class="row-cl"><td class="rank">2</td><td class="team-cell"><span class="badge sm" style="background:#12a0d7">那不勒斯</span>那不勒斯</td><td>5</td><td>4</td><td>0</td><td>1</td><td>11</td><td>5</td><td>+6</td><td class="pts">12</td></tr>
+            <tr class="row-cl"><td class="rank">3</td><td class="team-cell"><span class="badge sm" style="background:#000000">尤文</span>尤文图斯</td><td>5</td><td>3</td><td>1</td><td>1</td><td>8</td><td>4</td><td>+4</td><td class="pts">10</td></tr>
+            <tr class="row-cl"><td class="rank">4</td><td class="team-cell"><span class="badge sm" style="background:#fb090b">AC米兰</span>AC米兰</td><td>5</td><td>3</td><td>1</td><td>1</td><td>10</td><td>6</td><td>+4</td><td class="pts">10</td></tr>
+            <tr class="row-el"><td class="rank">5</td><td class="team-cell"><span class="badge sm" style="background:#1e71b8">亚特兰大</span>亚特兰大</td><td>5</td><td>2</td><td>2</td><td>1</td><td>9</td><td>6</td><td>+3</td><td class="pts">8</td></tr>
+            <tr class="row-el"><td class="rank">6</td><td class="team-cell"><span class="badge sm" style="background:#8e1f2f">罗马</span>罗马</td><td>5</td><td>2</td><td>1</td><td>2</td><td>7</td><td>7</td><td>0</td><td class="pts">7</td></tr>
+            <tr><td class="rank">7</td><td class="team-cell"><span class="badge sm" style="background:#87d8f7">拉齐奥</span>拉齐奥</td><td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>6</td><td>0</td><td class="pts">7</td></tr>
+            <tr class="row-rel"><td class="rank">8</td><td class="team-cell"><span class="badge sm" style="background:#482e92">紫百合</span>佛罗伦萨</td><td>5</td><td>1</td><td>2</td><td>2</td><td>5</td><td>8</td><td>-3</td><td class="pts">5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="panel-note">* 示例数据，仅为前 8 名展示</p>
+    </div>
+
+    <!-- 德甲 -->
+    <div class="tab-panel" data-panel="bundes">
+      <div class="table-wrap">
+        <table class="standings">
+          <thead>
+            <tr><th>排名</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净胜球</th><th>积分</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-cl"><td class="rank">1</td><td class="team-cell"><span class="badge sm" style="background:#dc052d">拜仁</span>拜仁慕尼黑</td><td>5</td><td>5</td><td>0</td><td>0</td><td>18</td><td>4</td><td>+14</td><td class="pts">15</td></tr>
+            <tr class="row-cl"><td class="rank">2</td><td class="team-cell"><span class="badge sm" style="background:#e32221">药厂</span>勒沃库森</td><td>5</td><td>3</td><td>2</td><td>0</td><td>12</td><td>5</td><td>+7</td><td class="pts">11</td></tr>
+            <tr class="row-cl"><td class="rank">3</td><td class="team-cell"><span class="badge sm light-text" style="background:#fde100">多特</span>多特蒙德</td><td>5</td><td>3</td><td>1</td><td>1</td><td>12</td><td>7</td><td>+5</td><td class="pts">10</td></tr>
+            <tr class="row-cl"><td class="rank">4</td><td class="team-cell"><span class="badge sm" style="background:#dd0741">莱比锡</span>RB莱比锡</td><td>5</td><td>3</td><td>0</td><td>2</td><td>10</td><td>8</td><td>+2</td><td class="pts">9</td></tr>
+            <tr class="row-el"><td class="rank">5</td><td class="team-cell"><span class="badge sm" style="background:#e32219">斯图加特</span>斯图加特</td><td>5</td><td>2</td><td>1</td><td>2</td><td>8</td><td>9</td><td>-1</td><td class="pts">7</td></tr>
+            <tr class="row-el"><td class="rank">6</td><td class="team-cell"><span class="badge sm" style="background:#e1000f">法兰克福</span>法兰克福</td><td>5</td><td>2</td><td>1</td><td>2</td><td>7</td><td>8</td><td>-1</td><td class="pts">7</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="panel-note">* 示例数据，仅为前 6 名展示</p>
+    </div>
+
+    <!-- 法甲 -->
+    <div class="tab-panel" data-panel="ligue1">
+      <div class="table-wrap">
+        <table class="standings">
+          <thead>
+            <tr><th>排名</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净胜球</th><th>积分</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-cl"><td class="rank">1</td><td class="team-cell"><span class="badge sm" style="background:#004170">巴黎</span>巴黎圣日耳曼</td><td>5</td><td>4</td><td>1</td><td>0</td><td>14</td><td>4</td><td>+10</td><td class="pts">13</td></tr>
+            <tr class="row-cl"><td class="rank">2</td><td class="team-cell"><span class="badge sm" style="background:#2faee0">马赛</span>马赛</td><td>5</td><td>3</td><td>1</td><td>1</td><td>10</td><td>6</td><td>+4</td><td class="pts">10</td></tr>
+            <tr class="row-cl"><td class="rank">3</td><td class="team-cell"><span class="badge sm" style="background:#e63312">摩纳哥</span>摩纳哥</td><td>5</td><td>3</td><td>1</td><td>1</td><td>9</td><td>6</td><td>+3</td><td class="pts">10</td></tr>
+            <tr class="row-el"><td class="rank">4</td><td class="team-cell"><span class="badge sm" style="background:#da001a">里昂</span>里昂</td><td>5</td><td>2</td><td>2</td><td>1</td><td>8</td><td>6</td><td>+2</td><td class="pts">8</td></tr>
+            <tr class="row-el"><td class="rank">5</td><td class="team-cell"><span class="badge sm" style="background:#e01e13">里尔</span>里尔</td><td>5</td><td>2</td><td>1</td><td>2</td><td>7</td><td>7</td><td>0</td><td class="pts">7</td></tr>
+            <tr class="row-rel"><td class="rank">6</td><td class="team-cell"><span class="badge sm" style="background:#cc0000">尼斯</span>尼斯</td><td>5</td><td>2</td><td>0</td><td>3</td><td>6</td><td>9</td><td>-3</td><td class="pts">6</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="panel-note">* 示例数据，仅为前 6 名展示</p>
+    </div>
+  </main>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="index.html"><span class="logo-badge">⚽</span>绿茵快讯<small>FOOTBALL NEWS</small></a>
+          <p>专注足球资讯的演示网站，提供最新新闻、赛程安排与积分榜数据。纯静态实现，无任何后端依赖。</p>
+        </div>
+        <div>
+          <h4>热门栏目</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="matches.html">赛程</a></li>
+            <li><a href="standings.html">积分榜</a></li>
+            <li><a href="article.html">深度阅读</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>联赛专区</h4>
+          <ul>
+            <li><a href="standings.html">英超</a></li>
+            <li><a href="standings.html">西甲</a></li>
+            <li><a href="standings.html">意甲</a></li>
+            <li><a href="standings.html">德甲 · 法甲</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于我们</h4>
+          <ul>
+            <li><a href="#">关于本站</a></li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">加入我们</a></li>
+            <li><a href="#">免责声明</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 绿茵快讯 FootballNews. 保留所有权利。</span>
+        <span>本站为演示项目 · 所有新闻、比分与数据均为示例内容</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="返回顶部">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
