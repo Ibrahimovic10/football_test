@@ -20,9 +20,12 @@ from urllib.parse import parse_qs, urlparse
 
 
 BASE_DIR = Path(__file__).resolve().parent
+# 评论数据保存在项目目录中，便于本地演示时持久化用户提交的内容。
 COMMENTS_FILE = BASE_DIR / "data" / "comments.json"
+# 文件读写共用同一把锁，避免并发请求同时修改 JSON 文件。
 COMMENTS_LOCK = threading.Lock()
 
+# 搜索接口使用的静态索引。演示站不接入真实搜索引擎，因此在这里维护可检索内容。
 SEARCH_ITEMS = [
     {
         "title": "拜仁慕尼黑专区：红色信仰与观赛笔记",
@@ -58,6 +61,7 @@ SEARCH_ITEMS = [
 
 
 def read_comments() -> list[dict[str, Any]]:
+    """读取评论文件；文件不存在或内容损坏时返回空列表。"""
     if not COMMENTS_FILE.exists():
         return []
     try:
@@ -68,6 +72,7 @@ def read_comments() -> list[dict[str, Any]]:
 
 
 def write_comments(comments: list[dict[str, Any]]) -> None:
+    """以临时文件替换的方式写入评论，降低写入中断导致文件损坏的风险。"""
     COMMENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     handle, temporary_name = tempfile.mkstemp(
         prefix="comments-", suffix=".json", dir=COMMENTS_FILE.parent
@@ -86,12 +91,15 @@ def write_comments(comments: list[dict[str, Any]]) -> None:
 
 
 class FootballHandler(SimpleHTTPRequestHandler):
+    """同时处理静态页面和评论、搜索等简单 JSON 接口。"""
+
     server_version = "FootballNews/1.0"
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(BASE_DIR), **kwargs)
 
     def send_json(self, payload: Any, status: HTTPStatus = HTTPStatus.OK) -> None:
+        """将 Python 对象序列化为 UTF-8 JSON 响应。"""
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -101,6 +109,7 @@ class FootballHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self) -> None:  # noqa: N802
+        """处理健康检查、站内搜索、评论查询，其余请求交给静态文件服务。"""
         parsed = urlparse(self.path)
 
         if parsed.path == "/api/health":
@@ -108,6 +117,7 @@ class FootballHandler(SimpleHTTPRequestHandler):
             return
 
         if parsed.path == "/api/search":
+            # 只匹配标题和关键词，并返回前端跳转所需的标题与链接。
             query = parse_qs(parsed.query).get("q", [""])[0].strip().lower()
             if not query:
                 self.send_json({"query": "", "results": []})
@@ -121,6 +131,7 @@ class FootballHandler(SimpleHTTPRequestHandler):
             return
 
         if parsed.path == "/api/comments":
+            # 读取时加锁，保证不会读到正在写入的中间状态。
             with COMMENTS_LOCK:
                 comments = read_comments()
             self.send_json({"comments": comments})
@@ -129,10 +140,12 @@ class FootballHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self) -> None:  # noqa: N802
+        """校验并保存一条新评论。"""
         if urlparse(self.path).path != "/api/comments":
             self.send_json({"error": "接口不存在"}, HTTPStatus.NOT_FOUND)
             return
 
+        # 限制请求体大小，避免本地接口被异常的大请求占用资源。
         try:
             length = int(self.headers.get("Content-Length", "0"))
         except ValueError:
@@ -155,6 +168,7 @@ class FootballHandler(SimpleHTTPRequestHandler):
             self.send_json({"error": "评论不能超过 300 个字符"}, HTTPStatus.BAD_REQUEST)
             return
 
+        # 使用 UTC 时间生成稳定 ID 和标准 ISO 时间，前端再按本地格式展示。
         comment = {
             "id": datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f"),
             "author": "本地访客",
@@ -170,6 +184,7 @@ class FootballHandler(SimpleHTTPRequestHandler):
 
 
 def parse_args() -> argparse.Namespace:
+    """解析命令行参数，允许用户修改监听地址和端口。"""
     parser = argparse.ArgumentParser(description="启动绿茵快讯本地服务器")
     parser.add_argument("--host", default="127.0.0.1", help="监听地址")
     parser.add_argument("--port", type=int, default=8000, help="监听端口")
@@ -177,6 +192,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """创建多线程 HTTP 服务，并在退出时释放监听端口。"""
     args = parse_args()
     server = ThreadingHTTPServer((args.host, args.port), FootballHandler)
     print(f"绿茵快讯已启动：http://{args.host}:{args.port}")

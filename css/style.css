@@ -5,6 +5,7 @@
 
 /* ---------- 1. 主题变量 ---------- */
 :root {
+  /* 亮色主题的全局颜色变量；组件尽量通过变量取色，便于统一换肤。 */
   --bg: #f2f4f7;
   --card: #ffffff;
   --text: #1b222c;
@@ -23,6 +24,7 @@
 
 /* 深色模式：由 js/main.js 切换 html[data-theme] 实现 */
 html[data-theme="dark"] {
+  /* JS 切换 html 的 data-theme 属性后，以下变量会覆盖亮色主题。 */
   --bg: #0e1319;
   --card: #161d26;
   --text: #e7edf3;
@@ -34,6 +36,7 @@ html[data-theme="dark"] {
 }
 
 /* ---------- 2. 基础重置 ---------- */
+/* 统一盒模型和默认间距，减少不同浏览器默认样式带来的布局差异。 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -57,6 +60,7 @@ input { font-family: inherit; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* ---------- 3. 顶部导航 ---------- */
+/* 顶部导航在桌面端横向排列，移动端规则见文件末尾的响应式区域。 */
 .site-header {
   position: sticky;
   top: 0;
@@ -846,6 +850,7 @@ html[data-theme="dark"] .ad-placeholder { background: linear-gradient(135deg, #1
 .page-head .sub { font-size: 14px; color: var(--text-2); }
 
 /* ---------- 14. Tab 切换 ---------- */
+/* Tab 面板默认隐藏，JS 为当前面板添加 active 类后显示。 */
 .tabs {
   display: flex;
   gap: 10px;
@@ -881,6 +886,7 @@ html[data-theme="dark"] .ad-placeholder { background: linear-gradient(135deg, #1
 }
 
 /* ---------- 15. 赛程页 ---------- */
+/* 赛程卡片按联赛分组展示，比赛状态和比分使用强调色突出。 */
 .match-list { display: flex; flex-direction: column; gap: 14px; }
 
 .match-row {
@@ -938,6 +944,7 @@ html[data-theme="dark"] .ad-placeholder { background: linear-gradient(135deg, #1
 }
 
 /* ---------- 16. 积分榜页 ---------- */
+/* 左侧色条用于区分欧冠、欧联和降级等名次区域。 */
 .legend {
   display: flex;
   gap: 16px;
@@ -1285,6 +1292,7 @@ html[data-theme="dark"] .ad-placeholder { background: linear-gradient(135deg, #1
 .toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
 /* ---------- 20. 响应式 ---------- */
+/* 屏幕变窄时逐步压缩间距并改为单列布局，保证手机端可读性。 */
 @media (max-width: 1024px) {
   .news-grid, .video-grid, .match-strip { grid-template-columns: repeat(2, 1fr); }
   .hero-grid { grid-template-columns: 1fr; }
