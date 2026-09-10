@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="绿茵快讯赛程页：欧冠、五大联赛与中超赛程一览">
+  <title>赛程 - 绿茵快讯</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="matches">
+
+  <!-- ===== 顶部导航 ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">⚽</span>绿茵快讯<small>FOOTBALL NEWS</small>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">首页</a>
+        <a href="matches.html">赛程</a>
+        <a href="standings.html">积分榜</a>
+        <a href="article.html">深度阅读</a>
+      </nav>
+      <div class="header-tools">
+        <form class="search" id="search-form">
+          <input type="text" placeholder="搜索新闻…" aria-label="搜索新闻">
+          <button type="submit" aria-label="搜索">🔍</button>
+        </form>
+        <button class="theme-toggle" id="theme-toggle" aria-label="切换深色模式">
+          <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>📅 赛程</h1>
+      <p class="sub">欧冠小组赛与五大联赛、中超赛程一览（时间均为北京时间）</p>
+    </div>
+
+    <!-- 联赛切换 Tab -->
+    <div class="tabs" data-tabs>
+      <button class="active" data-tab="ucl">欧冠</button>
+      <button data-tab="epl">英超</button>
+      <button data-tab="laliga">西甲</button>
+      <button data-tab="seriea">意甲</button>
+      <button data-tab="bundes">德甲</button>
+      <button data-tab="ligue1">法甲</button>
+      <button data-tab="csl">中超</button>
+    </div>
+
+    <!-- 欧冠 -->
+    <div class="tab-panel active" data-panel="ucl">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">欧冠 · 小组赛<br><span class="m-time">9月10日 00:45</span></div>
+          <div class="m-home"><span class="badge" style="background:#0068a8">国米</span>国际米兰</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">阿森纳<span class="badge" style="background:#ef0107">阿森纳</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">欧冠 · 小组赛<br><span class="m-time">9月10日 03:00</span></div>
+          <div class="m-home"><span class="badge light-text" style="background:#febe10">皇马</span>皇家马德里</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">C组焦点战</div></div>
+          <div class="m-away">拜仁慕尼黑<span class="badge" style="background:#dc052d">拜仁</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">欧冠 · 小组赛<br><span class="m-time">9月10日 03:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#6cabdd">曼城</span>曼城</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">C组焦点战</div></div>
+          <div class="m-away">巴黎圣日耳曼<span class="badge" style="background:#004170">巴黎</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">欧冠 · 小组赛<br><span class="m-time">9月10日 03:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#cb3524">马竞</span>马德里竞技</div>
+          <div class="m-score-box">
+            <span class="m-score">2 - 1</span>
+            <div><span class="m-live-mark">● 进行中 67'</span></div>
+          </div>
+          <div class="m-away">利物浦<span class="badge" style="background:#c8102e">利物浦</span></div>
+          <div class="m-status"><span class="status-chip status-live">进行中</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">欧冠 · 小组赛<br><span class="m-time">9月11日 03:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#a50044">巴萨</span>巴塞罗那</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">多特蒙德<span class="badge light-text" style="background:#fde100">多特</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+
+    <!-- 英超 -->
+    <div class="tab-panel" data-panel="epl">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">英超 · 第6轮<br><span class="m-time">9月12日 19:30</span></div>
+          <div class="m-home"><span class="badge" style="background:#c8102e">利物浦</span>利物浦</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">双红会</div></div>
+          <div class="m-away">曼联<span class="badge" style="background:#da291c">曼联</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">英超 · 第6轮<br><span class="m-time">9月13日 00:30</span></div>
+          <div class="m-home"><span class="badge" style="background:#ef0107">阿森纳</span>阿森纳</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">伦敦德比</div></div>
+          <div class="m-away">切尔西<span class="badge" style="background:#034694">切尔西</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">英超 · 第6轮<br><span class="m-time">9月13日 22:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#6cabdd">曼城</span>曼城</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">纽卡斯尔<span class="badge" style="background:#241f20">纽卡</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">英超 · 第6轮<br><span class="m-time">9月14日 03:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#132257">热刺</span>热刺</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">阿斯顿维拉<span class="badge" style="background:#670e36">维拉</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+
+    <!-- 西甲 -->
+    <div class="tab-panel" data-panel="laliga">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">西甲 · 第6轮<br><span class="m-time">9月13日 03:00</span></div>
+          <div class="m-home"><span class="badge light-text" style="background:#febe10">皇马</span>皇家马德里</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">皇家社会<span class="badge" style="background:#0067b1">皇社</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">西甲 · 第6轮<br><span class="m-time">9月14日 00:30</span></div>
+          <div class="m-home"><span class="badge" style="background:#a50044">巴萨</span>巴塞罗那</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">塞维利亚<span class="badge" style="background:#f43333">塞维</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">西甲 · 第6轮<br><span class="m-time">9月15日 03:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#cb3524">马竞</span>马德里竞技</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">比利亚雷亚尔<span class="badge light-text" style="background:#ffe667">潜艇</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+
+    <!-- 意甲 -->
+    <div class="tab-panel" data-panel="seriea">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">意甲 · 第5轮<br><span class="m-time">9月13日 02:45</span></div>
+          <div class="m-home"><span class="badge" style="background:#000000">尤文</span>尤文图斯</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">罗马<span class="badge" style="background:#8e1f2f">罗马</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">意甲 · 第5轮<br><span class="m-time">9月14日 02:45</span></div>
+          <div class="m-home"><span class="badge" style="background:#fb090b">AC米兰</span>AC米兰</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">那不勒斯<span class="badge" style="background:#12a0d7">那不勒斯</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">意甲 · 第5轮<br><span class="m-time">9月15日 00:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#1e71b8">亚特兰大</span>亚特兰大</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">佛罗伦萨<span class="badge" style="background:#482e92">紫百合</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+
+    <!-- 德甲 -->
+    <div class="tab-panel" data-panel="bundes">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">德甲 · 第5轮<br><span class="m-time">9月13日 21:30</span></div>
+          <div class="m-home"><span class="badge" style="background:#dc052d">拜仁</span>拜仁慕尼黑</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">RB莱比锡<span class="badge" style="background:#dd0741">莱比锡</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">德甲 · 第5轮<br><span class="m-time">9月14日 00:30</span></div>
+          <div class="m-home"><span class="badge light-text" style="background:#fde100">多特</span>多特蒙德</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">勒沃库森<span class="badge" style="background:#e32221">药厂</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+
+    <!-- 法甲 -->
+    <div class="tab-panel" data-panel="ligue1">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">法甲 · 第6轮<br><span class="m-time">9月14日 03:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#004170">巴黎</span>巴黎圣日耳曼</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">法国国家德比</div></div>
+          <div class="m-away">马赛<span class="badge" style="background:#2faee0">马赛</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">法甲 · 第6轮<br><span class="m-time">9月14日 23:00</span></div>
+          <div class="m-home"><span class="badge" style="background:#e63312">摩纳哥</span>摩纳哥</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">未开始</div></div>
+          <div class="m-away">里昂<span class="badge" style="background:#da001a">里昂</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+
+    <!-- 中超 -->
+    <div class="tab-panel" data-panel="csl">
+      <div class="match-list">
+        <div class="match-row">
+          <div class="m-league">中超 · 第27轮<br><span class="m-time">9月12日 19:35</span></div>
+          <div class="m-home"><span class="badge" style="background:#e4002b">海港</span>上海海港</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">冠军之战</div></div>
+          <div class="m-away">山东泰山<span class="badge" style="background:#f36d21">泰山</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-row">
+          <div class="m-league">中超 · 第27轮<br><span class="m-time">9月13日 19:35</span></div>
+          <div class="m-home"><span class="badge" style="background:#009944">国安</span>北京国安</div>
+          <div class="m-score-box"><span class="vs">VS</span><div class="m-time">京沪德比</div></div>
+          <div class="m-away">上海申花<span class="badge" style="background:#005eb8">申花</span></div>
+          <div class="m-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+      <p class="panel-note">* 示例赛程，仅供参考</p>
+    </div>
+  </main>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="index.html"><span class="logo-badge">⚽</span>绿茵快讯<small>FOOTBALL NEWS</small></a>
+          <p>专注足球资讯的演示网站，提供最新新闻、赛程安排与积分榜数据。纯静态实现，无任何后端依赖。</p>
+        </div>
+        <div>
+          <h4>热门栏目</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="matches.html">赛程</a></li>
+            <li><a href="standings.html">积分榜</a></li>
+            <li><a href="article.html">深度阅读</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>联赛专区</h4>
+          <ul>
+            <li><a href="standings.html">英超</a></li>
+            <li><a href="standings.html">西甲</a></li>
+            <li><a href="standings.html">意甲</a></li>
+            <li><a href="standings.html">德甲 · 法甲</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于我们</h4>
+          <ul>
+            <li><a href="#">关于本站</a></li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">加入我们</a></li>
+            <li><a href="#">免责声明</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 绿茵快讯 FootballNews. 保留所有权利。</span>
+        <span>本站为演示项目 · 所有新闻、比分与数据均为示例内容</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="返回顶部">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
