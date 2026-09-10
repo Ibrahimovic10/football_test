@@ -1,0 +1,164 @@
+/* ============================================================
+   绿茵快讯 · 交互脚本（原生 JS，无任何依赖）
+   功能：深色模式 / 导航高亮 / 焦点轮播 / Tab 切换 / 返回顶部 / 轻提示
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  initNav();
+  initSlider();
+  initTabs();
+  initBackToTop();
+  initToast();
+  initDemoOnly();
+});
+
+/* ---------- 1. 深色模式 ---------- */
+function initTheme() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  // 优先级：用户手动保存过 > 系统偏好
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+
+  toggle.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+}
+
+/* ---------- 2. 导航高亮（依据 body 上的 data-page） ---------- */
+function initNav() {
+  const page = document.body.dataset.page;
+  if (!page) return;
+
+  const map = { home: 'index.html', matches: 'matches.html', standings: 'standings.html', article: 'article.html' };
+  const target = map[page];
+  if (!target) return;
+
+  document.querySelectorAll('.main-nav a').forEach((link) => {
+    const href = link.getAttribute('href') || '';
+    link.classList.toggle('active', href === target || (target === 'article.html' && href === target));
+  });
+}
+
+/* ---------- 3. 首页焦点轮播 ---------- */
+function initSlider() {
+  const slider = document.getElementById('hero-slider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.slide');
+  const dotsBox = document.getElementById('slider-dots');
+  if (slides.length < 2) return;
+
+  let current = 0;
+  let timer = null;
+
+  // 生成圆点指示器
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `切换到第 ${i + 1} 张`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsBox.appendChild(dot);
+  });
+  const dots = dotsBox.querySelectorAll('button');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo(current + 1); }
+  function start() { stop(); timer = setInterval(next, 5000); }
+  function stop() { if (timer) clearInterval(timer); }
+
+  goTo(0);
+  start();
+
+  // 鼠标悬停时暂停，移出后继续
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+}
+
+/* ---------- 4. 联赛 Tab 切换（赛程 / 积分榜） ---------- */
+function initTabs() {
+  document.querySelectorAll('[data-tabs]').forEach((tabBox) => {
+    const buttons = tabBox.querySelectorAll('[data-tab]');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.tab;
+
+        buttons.forEach((b) => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('[data-panel]').forEach((panel) => {
+          panel.classList.toggle('active', panel.dataset.panel === name);
+        });
+      });
+    });
+  });
+}
+
+/* ---------- 5. 返回顶部 ---------- */
+function initBackToTop() {
+  const btn = document.getElementById('back-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 400);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ---------- 6. 轻提示 Toast ---------- */
+let toastTimer = null;
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function initToast() {
+  // 搜索框：静态站点没有搜索后端，给出提示
+  const searchForm = document.getElementById('search-form');
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('🔍 演示站点：搜索功能暂未开放');
+    });
+  }
+}
+
+/* ---------- 7. 演示站专属交互提示 ---------- */
+function initDemoOnly() {
+  // 视频卡片：无真实视频源
+  document.querySelectorAll('[data-video]').forEach((card) => {
+    card.addEventListener('click', () => showToast('🎬 演示站点：暂无视频源'));
+  });
+
+  // 分享按钮
+  document.querySelectorAll('[data-share]').forEach((btn) => {
+    btn.addEventListener('click', () => showToast('📤 演示站点：分享功能暂未开放'));
+  });
+
+  // 评论表单
+  const commentForm = document.getElementById('comment-form');
+  if (commentForm) {
+    commentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('💬 演示站点：评论功能暂未开放');
+    });
+  }
+}
