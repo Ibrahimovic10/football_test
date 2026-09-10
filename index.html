@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="绿茵快讯 —— 静态足球资讯演示网站：新闻、赛程、积分榜一站掌握">
+  <title>绿茵快讯 - 足球资讯门户</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <!-- ===== 顶部导航 ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">⚽</span>绿茵快讯<small>FOOTBALL NEWS</small>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">首页</a>
+        <a href="matches.html">赛程</a>
+        <a href="standings.html">积分榜</a>
+        <a href="article.html">深度阅读</a>
+      </nav>
+      <div class="header-tools">
+        <form class="search" id="search-form">
+          <input type="text" placeholder="搜索新闻…" aria-label="搜索新闻">
+          <button type="submit" aria-label="搜索">🔍</button>
+        </form>
+        <button class="theme-toggle" id="theme-toggle" aria-label="切换深色模式">
+          <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== 焦点轮播 + 侧栏速览 ===== -->
+    <section class="hero-grid">
+      <div class="hero-slider" id="hero-slider">
+        <div class="slide slide-1 active">
+          <span class="slide-emoji">🏆</span>
+          <span class="slide-tag">欧冠 · 焦点</span>
+          <h2>欧冠新赛季抽签：皇马、拜仁、巴黎造"死亡之组"</h2>
+          <p>2026-27 赛季欧冠小组赛抽签仪式今晨结束，上届冠军皇家马德里与拜仁慕尼黑、巴黎圣日耳曼同处 C 组，豪门对决一触即发。</p>
+          <div class="slide-meta">绿茵编辑部 · 2026-09-09 06:00 · 12,458 阅读</div>
+          <a class="btn-more" href="article.html">阅读全文 →</a>
+        </div>
+        <div class="slide slide-2">
+          <span class="slide-emoji">💰</span>
+          <span class="slide-tag">转会窗 · 盘点</span>
+          <h2>转会窗收官盘点：1.2 亿欧标王诞生，英超成最大买家</h2>
+          <p>今夏转会窗口正式关闭，巴黎圣日耳曼以 1.2 亿欧元签下克瓦拉茨赫利亚成为标王，英超联赛总投入再创历史新高。</p>
+          <div class="slide-meta">绿茵编辑部 · 2026-09-02 18:00 · 9,872 阅读</div>
+          <a class="btn-more" href="article.html">阅读全文 →</a>
+        </div>
+        <div class="slide slide-3">
+          <span class="slide-emoji">🇨🇳</span>
+          <span class="slide-tag">国家队 · 世预赛</span>
+          <h2>世预赛亚洲区：国足公布大名单，多名归化球员入选</h2>
+          <p>中国男足公布 9 月世预赛 18 强赛大名单，五名归化球员悉数在列，球队将于本周启程备战与日本队的客场关键战。</p>
+          <div class="slide-meta">绿茵编辑部 · 2026-09-08 10:30 · 15,236 阅读</div>
+          <a class="btn-more" href="article.html">阅读全文 →</a>
+        </div>
+        <div class="slider-dots" id="slider-dots"></div>
+      </div>
+
+      <div class="hero-side">
+        <a class="side-card" href="article.html">
+          <span class="tag tag-blue">英超</span>
+          <span class="side-emoji">🔥</span>
+          <h3>哈兰德双响，曼城 3-1 逆转阿森纳豪取开局五连胜</h3>
+          <div class="side-meta">2026-09-09 08:15 · 8,921 阅读</div>
+        </a>
+        <a class="side-card" href="article.html">
+          <span class="tag tag-purple">意甲</span>
+          <span class="side-emoji">⚡</span>
+          <h3>米兰德比：国米 2-0 完胜，劳塔罗一传一射闪耀圣西罗</h3>
+          <div class="side-meta">2026-09-08 22:40 · 7,350 阅读</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 最新快讯 ===== -->
+    <section class="section">
+      <div class="section-title">
+        <h2>最新快讯</h2>
+        <a class="more" href="article.html">查看全部 →</a>
+      </div>
+      <div class="ticker">
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">09:30</span>
+          <span class="tag tag-blue">欧冠</span>
+          <span class="ticker-title">欧冠抽签结果出炉：皇马、拜仁、巴黎组成"死亡之组"</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">08:15</span>
+          <span class="tag tag-red">英超</span>
+          <span class="ticker-title">哈兰德双响，曼城 3-1 逆转阿森纳豪取开局五连胜</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">07:40</span>
+          <span class="tag tag-orange">转会</span>
+          <span class="ticker-title">官方：巴黎签下那不勒斯核心克瓦拉茨赫利亚，转会费 1.2 亿欧</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">昨天</span>
+          <span class="tag tag-purple">意甲</span>
+          <span class="ticker-title">米兰德比：国米 2-0 完胜，劳塔罗一传一射</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">昨天</span>
+          <span class="tag tag-yellow">德甲</span>
+          <span class="ticker-title">凯恩上演帽子戏法，拜仁 4-2 力克多特蒙德</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">昨天</span>
+          <span class="tag tag-red">中超</span>
+          <span class="ticker-title">上海海港提前三轮锁定中超联赛冠军</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">09-08</span>
+          <span class="tag tag-green">国家队</span>
+          <span class="ticker-title">国足公布世预赛大名单：五名归化球员入选</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">09-08</span>
+          <span class="tag tag-orange">西甲</span>
+          <span class="ticker-title">皇马官宣：与主帅安切洛蒂续约至 2028 年</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">09-08</span>
+          <span class="tag tag-red">英超</span>
+          <span class="ticker-title">利物浦官方宣布签下后防新星，转会费 8000 万镑</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+        <a class="ticker-item" href="article.html">
+          <span class="ticker-time">09-07</span>
+          <span class="tag tag-blue">国际</span>
+          <span class="ticker-title">金球奖 30 人候选名单公布，哈兰德姆巴佩领衔</span>
+          <span class="ticker-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 焦点新闻 ===== -->
+    <section class="section">
+      <div class="section-title">
+        <h2>焦点新闻</h2>
+        <a class="more" href="article.html">更多 →</a>
+      </div>
+      <div class="news-grid">
+        <a class="news-card" href="article.html">
+          <div class="thumb g-green">🧠</div>
+          <div class="card-body">
+            <span class="tag tag-green">深度</span>
+            <h3>从重金属到控制流：高位逼抢战术的十年进化</h3>
+            <p class="excerpt">从克洛普的多特蒙德到斯洛特的利物浦，高位逼抢如何从一招鲜变成豪门标配？</p>
+            <div class="card-meta"><span>绿茵编辑部</span><span>09-08</span><span>12,458 阅读</span></div>
+          </div>
+        </a>
+        <a class="news-card" href="article.html">
+          <div class="thumb g-blue">📊</div>
+          <div class="card-body">
+            <span class="tag tag-blue">数据</span>
+            <h3>2026-27 赛季开局观察：五大联赛谁的状态最火热？</h3>
+            <p class="excerpt">用数据说话——进球、跑动、控球率全景对比，看看谁是开局之王。</p>
+            <div class="card-meta"><span>数据组</span><span>09-08</span><span>9,215 阅读</span></div>
+          </div>
+        </a>
+        <a class="news-card" href="article.html">
+          <div class="thumb g-orange">💶</div>
+          <div class="card-body">
+            <span class="tag tag-orange">转会</span>
+            <h3>今夏转会窗总览：亿元先生再创新高，英超独占半壁</h3>
+            <p class="excerpt">五大联赛投入榜出炉，英超总投入 22 亿欧，比第二名西甲多出近一倍。</p>
+            <div class="card-meta"><span>绿茵编辑部</span><span>09-02</span><span>10,730 阅读</span></div>
+          </div>
+        </a>
+        <a class="news-card" href="article.html">
+          <div class="thumb g-purple">🌱</div>
+          <div class="card-body">
+            <span class="tag tag-purple">青训</span>
+            <h3>对话青训教练：中国足球年轻一代的机会在哪里</h3>
+            <p class="excerpt">留洋、梯队、校园联赛——专访前国字号青训教练，聊聊 U17 世青赛背后的故事。</p>
+            <div class="card-meta"><span>深度组</span><span>09-06</span><span>6,584 阅读</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 热门比赛 ===== -->
+    <section class="section">
+      <div class="section-title">
+        <h2>热门比赛</h2>
+        <a class="more" href="matches.html">完整赛程 →</a>
+      </div>
+      <div class="match-strip">
+        <div class="match-card">
+          <div class="match-top"><span class="tag tag-blue">欧冠</span><span>9月10日 03:00</span></div>
+          <div class="match-teams">
+            <div class="match-team">
+              <span class="badge" style="background:#febe10" title="皇家马德里">皇马</span>
+              皇家马德里
+            </div>
+            <div class="match-center"><span class="vs">VS</span><div class="time">小组赛</div></div>
+            <div class="match-team">
+              <span class="badge" style="background:#dc052d" title="拜仁慕尼黑">拜仁</span>
+              拜仁慕尼黑
+            </div>
+          </div>
+          <div class="match-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-card">
+          <div class="match-top"><span class="tag tag-blue">欧冠</span><span>9月10日 03:00</span></div>
+          <div class="match-teams">
+            <div class="match-team">
+              <span class="badge" style="background:#6cabdd" title="曼城">曼城</span>
+              曼城
+            </div>
+            <div class="match-center"><span class="vs">VS</span><div class="time">小组赛</div></div>
+            <div class="match-team">
+              <span class="badge" style="background:#004170" title="巴黎圣日耳曼">巴黎</span>
+              巴黎圣日耳曼
+            </div>
+          </div>
+          <div class="match-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-card">
+          <div class="match-top"><span class="tag tag-red">英超</span><span>9月12日 19:30</span></div>
+          <div class="match-teams">
+            <div class="match-team">
+              <span class="badge" style="background:#c8102e" title="利物浦">利物浦</span>
+              利物浦
+            </div>
+            <div class="match-center"><span class="vs">VS</span><div class="time">第6轮 · 双红会</div></div>
+            <div class="match-team">
+              <span class="badge" style="background:#da291c" title="曼联">曼联</span>
+              曼联
+            </div>
+          </div>
+          <div class="match-status"><span class="status-chip">未开始</span></div>
+        </div>
+        <div class="match-card">
+          <div class="match-top"><span class="tag tag-purple">意甲</span><span>9月13日 02:45</span></div>
+          <div class="match-teams">
+            <div class="match-team">
+              <span class="badge" style="background:#000000" title="尤文图斯">尤文</span>
+              尤文图斯
+            </div>
+            <div class="match-center"><span class="vs">VS</span><div class="time">第5轮</div></div>
+            <div class="match-team">
+              <span class="badge" style="background:#8e1f2f" title="罗马">罗马</span>
+              罗马
+            </div>
+          </div>
+          <div class="match-status"><span class="status-chip">未开始</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 视频集锦 ===== -->
+    <section class="section">
+      <div class="section-title">
+        <h2>视频集锦</h2>
+        <a class="more" href="article.html">更多视频 →</a>
+      </div>
+      <div class="video-grid">
+        <div class="video-card" data-video>
+          <div class="thumb g-green video-thumb">🎥<span class="play">▶</span><span class="duration">09:12</span></div>
+          <div class="card-body">
+            <h3>集锦 | 曼城 3-1 阿森纳：哈兰德双响导演逆转</h3>
+            <div class="card-meta"><span>昨晚</span><span>8.9 万次播放</span></div>
+          </div>
+        </div>
+        <div class="video-card" data-video>
+          <div class="thumb g-purple video-thumb">🎥<span class="play">▶</span><span class="duration">07:45</span></div>
+          <div class="card-body">
+            <h3>集锦 | 米兰德比：劳塔罗传射，国米 2-0 完胜</h3>
+            <div class="card-meta"><span>昨晚</span><span>7.2 万次播放</span></div>
+          </div>
+        </div>
+        <div class="video-card" data-video>
+          <div class="thumb g-orange video-thumb">🎥<span class="play">▶</span><span class="duration">06:30</span></div>
+          <div class="card-body">
+            <h3>集锦 | 凯恩帽子戏法，拜仁 4-2 力克多特</h3>
+            <div class="card-meta"><span>昨晚</span><span>6.6 万次播放</span></div>
+          </div>
+        </div>
+        <div class="video-card" data-video>
+          <div class="thumb g-navy video-thumb">🎥<span class="play">▶</span><span class="duration">04:58</span></div>
+          <div class="card-body">
+            <h3>直击 | 欧冠抽签现场：豪门反应全记录</h3>
+            <div class="card-meta"><span>今天</span><span>3.4 万次播放</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 深度阅读 + 侧栏 ===== -->
+    <div class="two-col">
+      <div class="main-col">
+        <div class="list-card">
+          <div class="list-head"><h3>深度阅读</h3><a class="more" href="article.html">更多 →</a></div>
+          <a class="deep-item" href="article.html">
+            <div class="deep-thumb g-green">🧠</div>
+            <div>
+              <span class="tag tag-green">深度</span>
+              <h4>从重金属到控制流：高位逼抢战术的十年进化</h4>
+              <p>从克洛普的多特蒙德到斯洛特的利物浦，高位逼抢如何从一招鲜变成豪门标配？PPDA 数据背后藏着什么秘密？</p>
+              <div class="card-meta"><span>09-08</span><span>12,458 阅读</span></div>
+            </div>
+          </a>
+          <a class="deep-item" href="article.html">
+            <div class="deep-thumb g-blue">📊</div>
+            <div>
+              <span class="tag tag-blue">数据</span>
+              <h4>2026-27 赛季开局观察：五大联赛谁的状态最火热？</h4>
+              <p>用数据说话——进球、跑动、控球率全景对比，看看谁是开局之王，谁在慢热找状态。</p>
+              <div class="card-meta"><span>09-08</span><span>9,215 阅读</span></div>
+            </div>
+          </a>
+          <a class="deep-item" href="article.html">
+            <div class="deep-thumb g-navy">🏅</div>
+            <div>
+              <span class="tag tag-blue">国际</span>
+              <h4>金球奖候选名单公布：哈兰德姆巴佩领衔，争议人选引热议</h4>
+              <p>30 人候选名单正式公布，哈兰德、姆巴佩、维尼修斯领衔，多位世界杯冠军成员入选引发讨论。</p>
+              <div class="card-meta"><span>09-07</span><span>15,893 阅读</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="side-col">
+        <!-- 积分榜快照 -->
+        <div class="list-card">
+          <div class="list-head"><h3>英超积分榜</h3><a class="more" href="standings.html">完整榜单 →</a></div>
+          <table class="mini-table">
+            <thead>
+              <tr><th>#</th><th>球队</th><th>赛</th><th>积分</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td class="team-cell"><span class="badge sm" style="background:#6cabdd">曼城</span>曼城</td><td>5</td><td class="pts">15</td></tr>
+              <tr><td>2</td><td class="team-cell"><span class="badge sm" style="background:#c8102e">利物浦</span>利物浦</td><td>5</td><td class="pts">13</td></tr>
+              <tr><td>3</td><td class="team-cell"><span class="badge sm" style="background:#ef0107">阿森纳</span>阿森纳</td><td>5</td><td class="pts">12</td></tr>
+              <tr><td>4</td><td class="team-cell"><span class="badge sm" style="background:#034694">切尔西</span>切尔西</td><td>5</td><td class="pts">10</td></tr>
+              <tr><td>5</td><td class="team-cell"><span class="badge sm" style="background:#132257">热刺</span>热刺</td><td>5</td><td class="pts">9</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 射手榜 -->
+        <div class="list-card">
+          <div class="list-head"><h3>五大联赛射手榜</h3></div>
+          <div class="scorer-item">
+            <span class="scorer-rank">1</span>
+            <span class="badge sm" style="background:#6cabdd">曼城</span>
+            <div class="scorer-info"><div class="scorer-name">哈兰德</div><div class="scorer-team">曼城</div></div>
+            <span class="scorer-goals">9 球</span>
+          </div>
+          <div class="scorer-item">
+            <span class="scorer-rank">2</span>
+            <span class="badge sm" style="background:#dc052d">拜仁</span>
+            <div class="scorer-info"><div class="scorer-name">凯恩</div><div class="scorer-team">拜仁慕尼黑</div></div>
+            <span class="scorer-goals">8 球</span>
+          </div>
+          <div class="scorer-item">
+            <span class="scorer-rank">3</span>
+            <span class="badge sm" style="background:#febe10">皇马</span>
+            <div class="scorer-info"><div class="scorer-name">姆巴佩</div><div class="scorer-team">皇家马德里</div></div>
+            <span class="scorer-goals">7 球</span>
+          </div>
+          <div class="scorer-item">
+            <span class="scorer-rank">4</span>
+            <span class="badge sm" style="background:#a50044">巴萨</span>
+            <div class="scorer-info"><div class="scorer-name">莱万多夫斯基</div><div class="scorer-team">巴塞罗那</div></div>
+            <span class="scorer-goals">6 球</span>
+          </div>
+          <div class="scorer-item">
+            <span class="scorer-rank">5</span>
+            <span class="badge sm" style="background:#0068a8">国米</span>
+            <div class="scorer-info"><div class="scorer-name">劳塔罗</div><div class="scorer-team">国际米兰</div></div>
+            <span class="scorer-goals">6 球</span>
+          </div>
+        </div>
+
+        <!-- 热门排行 -->
+        <div class="list-card">
+          <div class="list-head"><h3>24 小时热榜</h3></div>
+          <div class="rank-item"><span class="rank-num">1</span><a href="article.html">欧冠抽签结果出炉：皇马、拜仁、巴黎组成"死亡之组"</a></div>
+          <div class="rank-item"><span class="rank-num">2</span><a href="article.html">哈兰德双响，曼城 3-1 逆转阿森纳豪取五连胜</a></div>
+          <div class="rank-item"><span class="rank-num">3</span><a href="article.html">国足公布世预赛大名单：五名归化球员入选</a></div>
+          <div class="rank-item"><span class="rank-num">4</span><a href="article.html">金球奖 30 人候选名单公布，哈兰德姆巴佩领衔</a></div>
+          <div class="rank-item"><span class="rank-num">5</span><a href="article.html">米兰德比：国米 2-0 完胜，劳塔罗一传一射</a></div>
+          <div class="rank-item"><span class="rank-num">6</span><a href="article.html">凯恩帽子戏法，拜仁 4-2 力克多特蒙德</a></div>
+          <div class="rank-item"><span class="rank-num">7</span><a href="article.html">官方：巴黎签下克瓦拉茨赫利亚，转会费 1.2 亿欧</a></div>
+          <div class="rank-item"><span class="rank-num">8</span><a href="article.html">皇马官宣：与主帅安切洛蒂续约至 2028 年</a></div>
+        </div>
+
+        <div class="ad-placeholder">📢 广告位 · 虚位以待<br><small>演示占位</small></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="index.html"><span class="logo-badge">⚽</span>绿茵快讯<small>FOOTBALL NEWS</small></a>
+          <p>专注足球资讯的演示网站，提供最新新闻、赛程安排与积分榜数据。纯静态实现，无任何后端依赖。</p>
+        </div>
+        <div>
+          <h4>热门栏目</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="matches.html">赛程</a></li>
+            <li><a href="standings.html">积分榜</a></li>
+            <li><a href="article.html">深度阅读</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>联赛专区</h4>
+          <ul>
+            <li><a href="standings.html">英超</a></li>
+            <li><a href="standings.html">西甲</a></li>
+            <li><a href="standings.html">意甲</a></li>
+            <li><a href="standings.html">德甲 · 法甲</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>关于我们</h4>
+          <ul>
+            <li><a href="#">关于本站</a></li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">加入我们</a></li>
+            <li><a href="#">免责声明</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 绿茵快讯 FootballNews. 保留所有权利。</span>
+        <span>本站为演示项目 · 所有新闻、比分与数据均为示例内容</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="返回顶部">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
