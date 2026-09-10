@@ -25,6 +25,16 @@ COMMENTS_LOCK = threading.Lock()
 
 SEARCH_ITEMS = [
     {
+        "title": "拜仁慕尼黑专区：红色信仰与观赛笔记",
+        "url": "/index.html#bayern",
+        "keywords": "拜仁 慕尼黑 南部之星 凯恩 德甲 Mia san mia Bayern",
+    },
+    {
+        "title": "梅西专区：左脚、视野与足球之美",
+        "url": "/index.html#messi",
+        "keywords": "梅西 Messi 阿根廷 盘带 直塞 十号",
+    },
+    {
         "title": "从重金属到控制流：高位逼抢战术的十年进化",
         "url": "/article.html",
         "keywords": "克洛普 利物浦 斯洛特 战术 高位逼抢 英超",
